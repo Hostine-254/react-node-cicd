@@ -1,29 +1,56 @@
-name : Node.js CI
+name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master    # Trigger this workflow on push to main
   pull_request:
-    branches: [ master ]
+    branches:
+      - master    # Trigger for pull requests targeting main
 
 jobs:
-  build: 
+  # Backend Build & Test
+  backend:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with: 
-        node-version: ${{ matrix.node-version }}
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - run:
-        npm i
-        cd backend
-        npm i
-        npm run dev
-        npm i
-        cd frontend
-        npm i
-        npm start
+    - name: Set up Node.js (Backend)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'  # Change this to your required Node.js version
+
+    - name: Install Backend Dependencies
+      working-directory: ./backend  # Change to the backend folder
+      run: npm i
+
+    - name: Run Backend Tests
+      working-directory: ./backend
+      run: npm run dev  # Adjust if using a different test runner
+
+  # Frontend Build & Test
+  frontend:
+    runs-on: self-hosted
+    needs: backend
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js (Frontend)
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'  # Change this to your required Node.js version
+
+    - name: Install Frontend Dependencies
+      working-directory: ./frontend  # Change to the frontend folder
+      run: npm i
+
+    - name: Run Frontend Tests
+      working-directory: ./frontend
+      run: npm start  # Adjust if using a different test runner
+
+
   
