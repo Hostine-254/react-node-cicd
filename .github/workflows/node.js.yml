@@ -29,18 +29,17 @@ jobs:
     - name: Ensure nodemon is executable
       run: chmod +x ./backend/node_modules/.bin/nodemon
 
-    - name: Run Backend with nodemon
-      working-directory: ./backend
-      run: npx nodemon app.js  # Ensure you're using the correct file for your backend
-
-    #- name: Run Backend Server
+    #- name: Run Backend with nodemon
     #  working-directory: ./backend
-    #  run: npm run dev  # Adjust if using a different test runner
+    #  run: npx nodemon index.js  # Ensure you're using the correct file for your backend
+
+    - name: Run Backend Server
+      working-directory: ./backend
+      run: npm run dev  # Adjust if using a different test runner
 
   # Frontend Build & Test
   frontend:
     runs-on: self-hosted
-    needs: backend
 
     steps:
     - name: Checkout code
