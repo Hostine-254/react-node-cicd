@@ -9,36 +9,8 @@ on:
       - master    # Trigger for pull requests targeting main
 
 jobs:
-  # Backend Build & Test
-  backend:
-    runs-on: self-hosted
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js (Backend)
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'  # Change this to your required Node.js version
-
-    - name: Install Backend Dependencies
-      working-directory: ./backend  # Change to the backend folder
-      run: npm i
-
-    - name: Ensure nodemon is executable
-      run: chmod +x ./backend/node_modules/.bin/nodemon
-
-    #- name: Run Backend with nodemon
-    #  working-directory: ./backend
-    #  run: npx nodemon index.js  # Ensure you're using the correct file for your backend
-
-    - name: Run Backend Server
-      working-directory: ./backend
-      run: npm run dev  # Adjust if using a different test runner
-
   # Frontend Build & Test
-  frontend:
+  Build:
     runs-on: self-hosted
 
     steps:
@@ -57,6 +29,22 @@ jobs:
     - name: Run Frontend Tests
       working-directory: ./frontend
       run: npm start  # Adjust if using a different test runner
+
+    - name: Install Backend Dependencies
+      working-directory: ./backend  # Change to the backend folder
+      run: npm i
+
+    - name: Ensure nodemon is executable
+      run: chmod +x ./backend/node_modules/.bin/nodemon
+
+    - name: Run Backend Server
+      working-directory: ./backend
+      run: npm run dev  # Adjust if using a different test runner
+
+
+
+
+
 
 
   
