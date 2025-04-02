@@ -28,7 +28,7 @@ jobs:
 
     - name: Run Frontend Tests
       working-directory: ./frontend
-      run: npm run build  # build the react application
+      run: npm run build  # build the react applications
 
     - name: Install Backend Dependencies
       working-directory: ./backend  # Change to the backend folder
