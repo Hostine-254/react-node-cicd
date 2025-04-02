@@ -40,7 +40,7 @@ jobs:
 
     - name: Run Backend Server
       working-directory: ./backend
-      run: npm run dev  # run the development server
+      run: npm run dev  # runs the development server
 
 
 
