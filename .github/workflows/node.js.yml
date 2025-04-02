@@ -40,7 +40,7 @@ jobs:
 
     - name: Run Backend Server
       working-directory: ./backend
-      run: npm run dev  # Adjust if using a different test runner
+      run: npm run dev  # runs the development server
 
 
 
