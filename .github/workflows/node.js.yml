@@ -22,20 +22,21 @@ jobs:
       with:
         node-version: '20'  # Change this to your required Node.js version
 
-    - name: Install Frontend Dependencies
-      working-directory: ./frontend  # Change to the frontend folder
-      run: npm i
-
-    - name: Run Frontend Tests
-      working-directory: ./frontend
-      run: npm start  # Adjust if using a different test runner
-
     - name: Install Backend Dependencies
       working-directory: ./backend  # Change to the backend folder
       run: npm i
 
+    - name: Install Frontend Dependencies
+      working-directory: ../frontend  # Change to the frontend folder
+      run: npm i
+
+    - name: Run Frontend Tests
+      working-directory: ./frontend
+      run: npm run build  # build the react application
+
+
     - name: Ensure nodemon is executable
-      run: chmod +x ./backend/node_modules/.bin/nodemon
+      run: chmod +x ./backend/node_modules/.bin/nodemon # change the nodemon permission if not included a permission denied error may arise
 
     - name: Run Backend Server
       working-directory: ./backend
