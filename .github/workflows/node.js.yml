@@ -22,10 +22,6 @@ jobs:
       with:
         node-version: '20'  # Change this to your required Node.js version
 
-    - name: Install Backend Dependencies
-      working-directory: ./backend  # Change to the backend folder
-      run: npm i
-
     - name: Install Frontend Dependencies
       working-directory: ./frontend  # Change to the frontend folder
       run: npm i
@@ -33,6 +29,10 @@ jobs:
     - name: Run Frontend Tests
       working-directory: ./frontend
       run: npm run build  # build the react application
+
+    - name: Install Backend Dependencies
+      working-directory: ./backend  # Change to the backend folder
+      run: npm i
 
 
     - name: Ensure nodemon is executable
