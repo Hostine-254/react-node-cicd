@@ -38,9 +38,6 @@ jobs:
     - name: Ensure nodemon is executable
       run: chmod +x ./backend/node_modules/.bin/nodemon # change the nodemon permission if not included a permission denied error may arise
 
-    - name: Run Backend Server
-      working-directory: ./backend
-      run: npm run dev  # runs the development server
 
 
 
