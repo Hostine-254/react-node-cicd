@@ -23,8 +23,10 @@ jobs:
         node-version: '20'  # Change this to your required Node.js version
 
     - name: Install Frontend Dependencies
-      working-directory: ./frontend  # Change to the frontend folder
-      run: npm i
+      working-directory: ./frontend
+      run: |
+        set -x
+        npm i
 
     - name: Run Frontend Tests
       working-directory: ./frontend
