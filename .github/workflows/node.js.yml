@@ -27,7 +27,7 @@ jobs:
       run: npm i
 
     - name: Install Frontend Dependencies
-      working-directory: ../frontend  # Change to the frontend folder
+      working-directory: ./frontend  # Change to the frontend folder
       run: npm i
 
     - name: Run Frontend Tests
