@@ -38,7 +38,7 @@ jobs:
 
 
     - name: Ensure nodemon is executable
-      run: chmod +x ./backend/node_modules/.bin/nodemon # change the nodemon permission if not included a permission denied error may arise
+      run: chmod +x ./backend/node_modules/.bin/nodemon # change the nodemon permissions if not included a permission denied error may arise
 
 
 
