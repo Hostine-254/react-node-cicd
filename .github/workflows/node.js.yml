@@ -20,7 +20,7 @@ jobs:
     - name: Set up Node.js (Frontend)
       uses: actions/setup-node@v2
       with:
-        node-version: '20'  # Change this to your required Node.js version
+        node-version: '20.18.0'  # Change this to your required Node.js version
 
     - name: Install Frontend Dependencies
       working-directory: ./frontend
