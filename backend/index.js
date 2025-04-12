@@ -21,6 +21,9 @@ app.use(cookieParser())
 
 app.use("/api",router)
 
+//  Serve static files from React
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
 const PORT = 8080 || process.env.PORT
 
 connectDB().then(()=>{
