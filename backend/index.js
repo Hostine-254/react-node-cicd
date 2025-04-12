@@ -19,6 +19,8 @@ app.use(cors({
 app.use(express.json())
 app.use(cookieParser())
 
+//  Serve static files from React
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.use("/api",router)
 
 const PORT = 8080 || process.env.PORT
