@@ -21,14 +21,6 @@ app.use(cookieParser())
 
 app.use("/api",router)
 
-//  Serve static files from React
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-//  Wildcard route to serve React for all unmatched GET requests
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-});
-
 const PORT = 8080 || process.env.PORT
 
 connectDB().then(()=>{
