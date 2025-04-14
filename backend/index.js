@@ -17,20 +17,7 @@ app.use(cors({
     credentials : true,
 }))
 app.use(express.json())
-
-const session = require("express-session");
-
 app.use(cookieParser())
-app.use(session({
-  secret: process.env.SESSION_SECRET || "supersecretkey",
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    httpOnly: true,
-    secure: false, // ⚠️ Set to true if using HTTPS
-    sameSite: "lax"
-  }
-}));
 
 app.use("/api",router)
 
