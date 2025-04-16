@@ -6,13 +6,16 @@ import VerticalCardProduct from '../components/VerticalCardProduct'
 
 function Home() {
   return (
-    <div>
-      <CategoryList/>
-      <BannerProduct/>
+    <div className='bg-white'>
+      {/* Outer container with consistent spacing */}
+      <div className="container mx-auto px-6 space-y-2">
+        <CategoryList />
+        <BannerProduct />
 
-      <HorizontalCardProduct category={"airpodes"} heading={"Top's Airpodes"}/>
-      <HorizontalCardProduct category={"camera"} heading={"Popular Cameras"}/>
-      <VerticalCardProduct category={"mobiles"} heading={"Mobiles"}/>
+        <HorizontalCardProduct category="airpodes" heading="Top's Airpodes" />
+        <HorizontalCardProduct category="camera" heading="Popular Cameras" />
+        <VerticalCardProduct category="mobiles" heading="Mobiles" />
+      </div>
     </div>
   )
 }
